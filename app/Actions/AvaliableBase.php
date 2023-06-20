@@ -21,8 +21,7 @@ class AvaliableBase
                 ->get();
 
             $occupiedSeatsByStage = $occupiedSeats->pluck('total', 'stage')->toArray();
-
-            // Preencher com 0 as etapas que não possuem participações
+            
             for ($i = 1; $i <= 2; $i++) {
                 if (!isset($occupiedSeatsByStage[$i])) {
                     $occupiedSeatsByStage[$i] = 0;

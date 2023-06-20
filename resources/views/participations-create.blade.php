@@ -53,10 +53,10 @@
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" style="vertical-align: top;">
                 <label class="inline-flex items-center">Salas disponíveis</label><br>
                 @foreach($conferenceRooms as $conferenceRoom)
-                <input type="radio" 
-                    id="stage1-conference-room-{{ $conferenceRoom->id }}" 
-                    name="stage[1][conference_room_id]" 
-                    value="{{ $conferenceRoom->id }}"> {{ $conferenceRoom->room_name }} - 
+                <input type="radio"
+                    id="stage1-conference-room-{{ $conferenceRoom->id }}"
+                    name="stage[1][conference_room_id]"
+                    value="{{ $conferenceRoom->id }}"> {{ $conferenceRoom->room_name }} -
                     @if( $conferenceRoom['availableSeats'][1] > 0)
                     Vagas disponíveis {{ $conferenceRoom['availableSeats'][1] }} </br>
                     <pre>Sujeito a confirmação</pre>
@@ -68,9 +68,9 @@
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" style="vertical-align: top;">
                 <label class="inline-flex items-center">Espaços disponíveis para o coffee break</label></br>
                 @foreach($coffeeLounges as $coffeeLounge)
-                <input type="radio" 
-                    id="stage1-coffee_lounge-{{ $coffeeLounge->id }}" 
-                    name="stage[1][coffee_lounge_id]" 
+                <input type="radio"
+                    id="stage1-coffee_lounge-{{ $coffeeLounge->id }}"
+                    name="stage[1][coffee_lounge_id]"
                     value="{{ $coffeeLounge->id }}"> {{ $coffeeLounge->coffee_lounge_name }}
                     @if( $coffeeLounge['availableSeats'][1] > 0)
                     Vagas disponíveis {{ $coffeeLounge['availableSeats'][1] }} </br>
@@ -79,7 +79,7 @@
                     <span class="text-red-500">Não há vagas</span>
                     @endif
                 @endforeach
-                <input type="hidden"  name="stage[1][stage]" value="1">    
+                <input type="hidden"  name="stage[1][stage]" value="1">
               </td>
             </tr>
             <tr class="bg-white border-b">
@@ -91,10 +91,10 @@
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" style="vertical-align: top;">
                 <label class="inline-flex items-center">Salas disponíveis</label><br>
                 @foreach($conferenceRooms as $conferenceRoom)
-                <input type="radio" 
-                    id="stage1-conference-room-{{ $conferenceRoom->id }}" 
-                    name="stage[2][conference_room_id]" 
-                    value="{{ $conferenceRoom->id }}"> {{ $conferenceRoom->room_name }} - 
+                <input type="radio"
+                    id="stage1-conference-room-{{ $conferenceRoom->id }}"
+                    name="stage[2][conference_room_id]"
+                    value="{{ $conferenceRoom->id }}"> {{ $conferenceRoom->room_name }} -
                     @if( $conferenceRoom['availableSeats'][2] > 0)
                     Vagas disponíveis {{ $conferenceRoom['availableSeats'][2] }} </br>
                     <pre>Sujeito a confirmação</pre>
@@ -106,23 +106,23 @@
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" style="vertical-align: top;">
                 <label class="inline-flex items-center">Espaços disponíveis para o coffee break</label></br>
                 @foreach($coffeeLounges as $coffeeLounge)
-                <input type="radio" 
-                    id="stage1-coffee_lounge-{{ $coffeeLounge->id }}" 
-                    name="stage[2][coffee_lounge_id]" 
-                    value="{{ $coffeeLounge->id }}"> {{ $coffeeLounge->coffee_lounge_name }} - 
+                <input type="radio"
+                    id="stage1-coffee_lounge-{{ $coffeeLounge->id }}"
+                    name="stage[2][coffee_lounge_id]"
+                    value="{{ $coffeeLounge->id }}"> {{ $coffeeLounge->coffee_lounge_name }} -
                     @if( $coffeeLounge['availableSeats'][2] > 0)
                     Vagas disponíveis {{ $coffeeLounge['availableSeats'][2] }} </br>
                     <pre>Sujeito a confirmação</pre>
                     @else
-                    <span class="text-red-500">Não há vagas</span>
+                    <span class="text-red-500">Não há vagas</span><br>
                     @endif
-                @endforeach  
+                @endforeach
                 <input type="hidden"  name="stage[2][stage]" value="2">
               </td>
             </tr>
             <tr>
                 <td colspan="2" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" style="vertical-align: top;">
-                    <button type="submit" 
+                    <button type="submit"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-4 sm:px-2.5 sm:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full">
               Cadastrar</button>
                 </td>
@@ -148,7 +148,7 @@
 
         @foreach(session('person')->coffeeLounges as $participation)
           <li>
-            Área de Descanso: {{ $participation->coffeeLounge->coffee_lounge_name }}
+            Área de intervalo: {{ $participation->coffeeLounge->coffee_lounge_name }}
           </li>
         @endforeach
       </ul>
@@ -162,13 +162,13 @@
       if (successMessage) {
         var modal = document.getElementById("success-modal");
         modal.style.display = "block";
-        
+
         setTimeout(function() {
             modal.style.display = "none";
-        }, 10000);
+        }, 5000);
       }
     });
   </script>
-  
+
 
 </x-app-layout>

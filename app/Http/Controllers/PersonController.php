@@ -14,7 +14,7 @@ class PersonController extends Controller
          $persons = Person::with(['participation.conferenceRoom', 'participation.coffeeLounge'])
             ->orderBy('first_name')
             ->get();
-        // dd($persons[0]);
+
          return view('participations')->with('persons', $persons);
     }
 }

@@ -11,9 +11,8 @@ class ConferenceRoomController extends Controller
 {
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        // $conferenceRooms = ConferenceRoom::all();
         $conferenceRooms = ConferenceRoom::with('participations')->get();
-        // dd($conferenceRooms);
+
         return view('conferenceroom')->with('conferenceRooms',$conferenceRooms);
     }
 
@@ -35,7 +34,6 @@ class ConferenceRoomController extends Controller
         $conferenceRoom = ConferenceRoom::with('participations.person')->findOrFail($id);
         $participants = $conferenceRoom->participations
         ->groupBy('stage')->sortBy('stage');
-        // dd($participants);
 
         return view('conferenceroomparticipants')->with([
             'conferenceRoom' => $conferenceRoom,

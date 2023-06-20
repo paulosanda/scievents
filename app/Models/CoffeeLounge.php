@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CoffeeLounge extends Model
 {
@@ -14,7 +15,7 @@ class CoffeeLounge extends Model
         'capacity'
     ];
 
-    public function participations()
+    public function participations(): HasMany
     {
         return $this->hasMany(Participation::class);
     }
