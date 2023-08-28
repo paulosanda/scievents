@@ -1,10 +1,10 @@
-# Teste SCI 
+# Teste SCI
 
 ## Requisitos do Sistema
 
-- PHP (versão 7.4 ou superior)
-- Composer
-- Docker e Docker Compose (para usar Laravel Sail)
+-   PHP (versão 7.4 ou superior)
+-   Composer
+-   Docker e Docker Compose (para usar Laravel Sail)
 
 ## Instalação
 
@@ -21,6 +21,10 @@ A seed criará um usuário administrador com as seguintes credenciais:
 E-mail: admin@admin
 Senha: 123
 
+## Vite
+./vendor/bin/sail npm install
+./vendor/bin/sail npm run dev
+
 Utilização
 Após a conclusão das etapas de instalação, você pode acessar a aplicação em seu navegador visitando a URL:
 
@@ -30,3 +34,4 @@ Certifique-se de que o Docker esteja em execução para que o Laravel Sail funci
 
 Executando Testes
 Para executar os testes automatizados, utilize o seguinte comando:
+```
