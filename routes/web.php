@@ -9,6 +9,7 @@ use App\Models\ConferenceRoom;
 use App\Models\Participation;
 use Database\Factories\ParticipationFactory;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BenchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,14 +33,14 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/conference-rooms', [ConferenceRoomController::class, 'index'])
         ->name('conference.room.index');
-    Route::post('/conference-rooms',[ConferenceRoomController::class, 'store'])
-        ->name('conference.room.store'); 
+    Route::post('/conference-rooms', [ConferenceRoomController::class, 'store'])
+        ->name('conference.room.store');
     Route::get('/conference-room/{id}', [ConferenceRoomController::class, 'show'])
         ->name('conference.room.show');
 
-    Route::get('/coffee-lounges',[CoffeeLoungeController::class, 'index'])
+    Route::get('/coffee-lounges', [CoffeeLoungeController::class, 'index'])
         ->name('coffee.lounges.index');
-    Route::post('/coffee-lounges',[CoffeeLoungeController::class, 'store'])
+    Route::post('/coffee-lounges', [CoffeeLoungeController::class, 'store'])
         ->name('coffee.lounges.store');
     Route::get('/coffee-lounge/{id}', [CoffeeLoungeController::class, 'show'])
         ->name('coffee.lounge.show');
@@ -48,9 +49,11 @@ Route::middleware('auth')->group(function () {
         ->name('participations.create');
     Route::post('/participations', [ParticipationController::class, 'store'])
         ->name('participations.store');
-    
+
     Route::get('persons', [PersonController::class, 'index'])
         ->name('persons.index');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/benchmark', [BenchController::class, 'index']);
+
+require __DIR__ . '/auth.php';
